@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Bonjour {{ app.user.firstName }}</h1>
+                <table class="table">
+                    {% if app.user %}
+                    <tr>
+                        <th>Nom</th>
+                        <td>{{ app.user.lastName }}</td>
+                    </tr>
+                    <tr>
+                        <th>Prenom</th>
+                        <td>{{ app.user.firstName }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ app.user.email }}</td>
+                    </tr>
+                    {% endif %}
+                </table>
+                <a href="{{ path('profile_delete') }}"><button class="btn btn-danger">Supprimer le compte</button></a>
+                <a href="{{ path('article_new') }}"><button class="btn btn-danger">Nouvel article</button></a>
+{#                <a href="{{ path('profile_delete') }}"><button class="btn btn-danger">Supprimer le compte</button></a>#}
+            </div>
+        </div>
+    </div>
+{% endblock %}

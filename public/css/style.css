@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/coucher2.webp");
+}
+
+h1{
+    text-align: center;
+    margin-top: 10px;
+}
+
+nav img{
+    height: 50px;
+}
+.footer{
+    color: #FFFFFF;
+    background-color: #000000;
+    text-align: center;
+}
+.bi .bi-trash-fill{
+    color: red;
+}
+table td img{
+    height: 50px;
+}
+
+.card{
+    width: 300px;
+    height: auto;
+}
+.card-home{
+    display: flex;
+}

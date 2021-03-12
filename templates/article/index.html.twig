@@ -1,0 +1,50 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}les articles{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Les articles</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nom de l'article</th>
+                            <th>Image</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for article in articles %}
+                    <tr>
+                        <td><a href="{{ path('article_item', {'id' : article.id}) }}">{{ article.title }}</a></td>
+                            <td>
+                            {% if article.filename %}
+                        <img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="">
+                                {% endif %}
+                            </td>
+                            <td>{{ article.description }}</td>
+                         <td>{#{{ article.updated_at }}#}</td>
+                        <td>
+                            <a href="#"><i class="fas fa-trash"></i></a>
+                            <a href="#"><i class="fas fa-pencil-alt"></i></a>
+                        </td>
+                    </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+               {#  Pagination#}
+                {% for p in 1..nbPage %}
+                    {% if p == page %}
+                        {{ p }}&nbsp;
+                    {% else %}
+                        <a href="{{ path('article_list_page', {page: p}) }}">{{ p }}</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

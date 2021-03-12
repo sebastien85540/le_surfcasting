@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Le surfcasting</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti ipsam minus numquam perspiciatis. Ab accusamus alias corporis eum expedita fuga illum, in, natus nihil pariatur perspiciatis quibusdam saepe, veniam! Aut consectetur debitis dolorem doloribus ex exercitationem laboriosam laborum, obcaecati perspiciatis provident, quam quis similique sint vel vitae. Alias animi, architecto atque autem, blanditiis consectetur cumque cupiditate eum facilis hic ipsam laudantium maiores minus mollitia officia omnis pariatur perferendis porro quia, quidem quo quos tempore velit! Ea error ex in officia quos tempore, voluptatem. Aliquam officia voluptates voluptatum! Debitis dicta earum eos et in ipsum nihil quas quia quo reiciendis rem, rerum voluptas voluptatum! Aliquid architecto culpa doloribus dolorum earum eveniet in laudantium neque officiis quaerat, quia reiciendis, sequi velit! Accusantium adipisci architecto beatae dolore dolorum eos esse eum excepturi impedit labore laboriosam laborum laudantium magnam magni natus neque nobis pariatur, placeat praesentium, quam quo, reiciendis rem reprehenderit rerum soluta. Amet commodi doloribus facilis ipsam iusto, laudantium molestias odit officia porro quam quidem quo, ratione reprehenderit soluta sunt. Aperiam commodi, dolore dolores dolorum eligendi illum molestiae quibusdam ut! A animi atque autem dignissimos ea ex excepturi impedit laudantium natus nesciunt officiis quae qui recusandae, repellat sit soluta tempore tenetur! Possimus, quidem.</p>
+               <div class="container">
+                   <div class="row">
+                       <div class="col card-home">
+                            {% for article in articles %}
+                            <div class="card me-3">
+                                <img src="{{ vich_uploader_asset(article, 'imageFile') }}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ article.title }}</h5>
+                                    <p class="card-text">{{ article.description}}</p>
+                                    {% if app.user %}
+                                    <a href="{{ path('article_item', {'id' : article.id}) }}" class="btn btn-primary">Voir</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                       </div>
+                   </div>
+               </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block title %}Accueil{% endblock %}

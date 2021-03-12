@@ -1,0 +1,36 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}article{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {% if article %}
+                <h1>{{ article.title }}</h1>
+                <img src='{{ vich_uploader_asset(article, 'imageFile') }}' alt="">
+                <p>{{ article.description }}</p>
+                <p>{{ article.author.firstName }}</p>
+                <p>Ecrit le : {{ article.updatedAt | date('d/m/Y') }}</p>
+                    {{ form_start(commentForm) }}
+                    {{ form_errors(commentForm) }}
+
+                    {{ form_label(commentForm.comment) }}
+                    {{ form_widget(commentForm.comment) }}
+                    {{ form_errors(commentForm.comment) }}
+
+                    {{ form_end(commentForm) }}
+                    {% if article.comments %}
+                    {% for comment in article.comments %}
+                        <p>{{ comment.userComment.firstName }}</p>
+                        <p>{{ comment.comment }}</p>
+                        <p>{{ comment.date | date('d/m/Y') }}</p>
+                    {% else %}
+                        Aucun commentaire trouvé
+                    {% endfor %}
+                        {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

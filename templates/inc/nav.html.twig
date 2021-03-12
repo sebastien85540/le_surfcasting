@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <img src="{{ asset('images/beach-2836300_640.jpg') }}" alt="coucher de soleil">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ path('home') }}">Le surfcasting</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ path('contact') }}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ path('about_us') }}">A propos</a>
+                </li>
+
+            </ul>
+            {% if app.user %}
+            <a href="{{ path('app_logout') }}"><button class="btn btn-danger me-2">Deconnexion</button></a>
+            <a href="{{ path('profile_user') }}"><button class="btn btn-success me-2">Profil</button></a>
+            <a href="{{ path('article_list') }}"><button class="btn btn-secondary me-2">articles</button></a>
+                {% else %}
+                    <a href="{{ path('app_register') }}"><button class="btn btn-danger me-2">Inscription</button></a>
+                    <a href="{{ path('app_login') }}"><button class="btn btn-success">Connexion</button></a>
+            {% endif %}
+        </div>
+    </div>
+</nav>

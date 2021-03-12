@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    c'est pas bon
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Erreur 404 retournez à l'<a href="{{ path('home') }}">accueil</a></h1>
+                <img src="{{ asset('images/error-404.jpg') }}">
+            </div>
+        </div>
+    </div>
+{% endblock %}

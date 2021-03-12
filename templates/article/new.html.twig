@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}nouvel article{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Nouvel article</h1>
+                {{ form_start(articleFormView) }}
+                {{ form_errors(articleFormView) }}
+
+                {{ form_label(articleFormView.title) }}
+                {{ form_widget(articleFormView.title) }}
+                {{ form_errors(articleFormView.title) }}
+
+                {{ form_label(articleFormView.imageFile) }}
+                {{ form_widget(articleFormView.imageFile) }}
+                {{ form_errors(articleFormView.imageFile) }}
+
+                {{ form_label(articleFormView.description) }}
+                {{ form_widget(articleFormView.description) }}
+                {{ form_errors(articleFormView.description) }}
+
+
+                {{ form_end(articleFormView) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
